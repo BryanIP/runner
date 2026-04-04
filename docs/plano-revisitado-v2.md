@@ -33,7 +33,9 @@
 **para que** o desenvolvimento possa progredir de forma organizada e incremental.
 
 **Critérios de aceitação:**
-- [ ] Projeto Go inicializado com `go mod init`
+- [ ] Projeto Go inicializado com `go mod init github.com/kyriosdata/assinatura`
+- [ ] Instalar ferramenta para cli em Go `go install github.com/spf13/cobra-cli@latest`
+- Prompt: acrescente ao projeto que usa o Cobra a opção version, desta forma, quando for executado, deve exibir a versão corrente da aplicação.
 - [ ] Estrutura de pacotes definida e documentada
 - [ ] Aplicação compila e executa nas três plataformas (Windows, Linux, macOS)
 - [ ] Comando `assinatura version` exibe a versão atual do CLI
@@ -62,6 +64,19 @@
 - [ ] Binários publicados automaticamente no GitHub Releases ao criar tag
 - [ ] Nome dos artefatos segue convenção: `assinatura-<versão>-<os>-<arch>`
 
+### US-05.3 — Checksums SHA256 e assinatura de artefatos com Cosign
+
+**Como** usuário do Sistema Runner,
+**quero** que os binários distribuídos incluam checksums SHA256 e assinatura via Cosign,
+**para que** eu possa verificar a integridade e autenticidade dos artefatos baixados.
+
+**Critérios de aceitação:**
+- [ ] Cada release inclui arquivo de checksums SHA256 para todos os binários
+- [ ] Artefatos assinados com Cosign (identidade OIDC + transparency log)
+- [ ] Cada artefato acompanhado de `.sig` e `.pem` conforme especificação
+- [ ] Processo de assinatura automatizado no pipeline CI/CD
+- [ ] Documentação de como verificar artefatos com `cosign verify-blob`
+
 ---
 
 ## Sprint 2 — Assinatura Digital Simulada (modo local)
@@ -77,6 +92,7 @@
 **para que** eu possa testar o fluxo de assinatura sem infraestrutura criptográfica real.
 
 **Critérios de aceitação:**
+- [ ] Projeto Java base inicializado no diretório `projetos/assinador-java`
 - [ ] Interface `SignatureService` definida com métodos `sign` e `validate`
 - [ ] Implementação `FakeSignatureService` retorna assinatura pré-construída para parâmetros válidos
 - [ ] Resposta simulada inclui os campos esperados conforme especificação
@@ -305,18 +321,7 @@
 - [ ] Versão já baixada não é baixada novamente (cache local em `~/.hubsaude/`)
 - [ ] Verificação de integridade do download (checksum)
 
-### US-05.3 — Checksums SHA256 e assinatura de artefatos com Cosign
-
-**Como** usuário do Sistema Runner,
-**quero** que os binários distribuídos incluam checksums SHA256 e assinatura via Cosign,
-**para que** eu possa verificar a integridade e autenticidade dos artefatos baixados.
-
-**Critérios de aceitação:**
-- [ ] Cada release inclui arquivo de checksums SHA256 para todos os binários
-- [ ] Artefatos assinados com Cosign (identidade OIDC + transparency log)
-- [ ] Cada artefato acompanhado de `.sig` e `.pem` conforme especificação
-- [ ] Processo de assinatura automatizado no pipeline CI/CD
-- [ ] Documentação de como verificar artefatos com `cosign verify-blob`
+- [ ] Checksum SHA-256 e Sigstore Cosign incorporados no fluxo (US-05.3)
 
 ---
 
@@ -324,7 +329,7 @@
 
 | Sprint | Foco | Histórias | Resultado principal |
 |--------|------|-----------|---------------------|
-| 1 | Fundação e Entrega Contínua | US-01.1, US-05.1, US-05.2 | CLI base + CI/CD + Releases |
+| 1 | Fundação e Contínua + Segurança Básica | US-01.1, US-05.1, US-05.2, US-05.3 | CLI base + CI/CD + Sign + Releases |
 | 2 | Assinatura Simulada (modo local) | US-02.1, US-02.2, US-02.3, US-01.2, US-01.3, US-01.4, US-04.1 | Fluxo ponta-a-ponta funcional |
 | 3 | Modo Servidor e PKCS#11 | US-02.4, US-02.5, US-01.5, US-01.6, US-01.7, US-01.8, US-01.9 | Servidor HTTP + material criptográfico |
-| 4 | Simulador e Segurança | US-03.1, US-03.2, US-03.3, US-03.4, US-05.3 | Sistema completo e seguro |
+| 4 | Simulador e Segurança Final | US-03.1, US-03.2, US-03.3, US-03.4 | Sistema e Simulador completos |
