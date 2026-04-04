@@ -1,17 +1,40 @@
 # Sistema Runner
 
-Repositório para o desenvolvimento do Sistema Runner da disciplina de Implementação e Integração de Software - UFG
+Repositório do trabalho prático da disciplina de Implementação e Integração de Software (UFG).
 
-# O que está rolando... (desde 25/03/2026)
+O objetivo do Runner é simplificar a execução e o gerenciamento de aplicações Java por linha de comando, com foco em:
 
-- A partir de agora iremos colocar a mão na massa. Partiremos do [Plano Revisado #2](./docs/plano-revisitado-v2.md) elaborado pelo professor.
-- Iniciaremos pela Sprint 1, na qual tem o objetivo de criar um CLI e implementar CI/CD no GitHub.
+- CLI de assinatura.
+- assinador.jar (modo local e modo servidor HTTP).
+- CLI de gerenciamento do simulador.
 
-# O que está rolando... (desde 18/03/2026)
+## Guia Rápido
 
-- Foi feito um [brainstorming](./docs/planejamento-inicial.md) inicial da estruturação do projeto.
-- Instalei o JDK 21 em ambiente gerenciado e testei o HubSaúde.
+- Requisitos e escopo: [docs/especificacao.md](docs/especificacao.md)
+- Arquitetura e diagramas C4: [docs/design.md](docs/design.md)
+- Plano de implementação: [docs/plano-revisitado-v2.md](docs/plano-revisitado-v2.md)
+- Proposta de organização do repositório: [docs/organizacao-repositorio.md](docs/organizacao-repositorio.md)
+- Linha do tempo das aulas: [docs/README.md](docs/README.md)
 
-# O que está rolando... (desde 11/03/2026)
+## Estrutura Atual
 
-- Minha primeira aula. Foi feita a criação do repositório no [GitHub](https://github.com/BryanIP/runner).
+- [cli](cli): código-fonte do CLI em Go.
+- [docs](docs): requisitos, design, planejamento e documentação de apoio.
+- [assets](assets): artefatos de apoio para desenvolvimento local.
+- [certs](certs): certificados usados em testes locais.
+
+## Estado do Projeto
+
+- O projeto está em evolução incremental por sprints, seguindo o plano revisado.
+- A base inicial do CLI já existe e será expandida para cobrir todos os contêineres definidos no design.
+
+## Como Contribuir
+
+1. Leia os requisitos em [docs/especificacao.md](docs/especificacao.md).
+2. Confirme o desenho arquitetural em [docs/design.md](docs/design.md).
+3. Escolha uma história no plano em [docs/plano-revisitado-v2.md](docs/plano-revisitado-v2.md).
+4. Implemente com testes e atualize a documentação relacionada.
+
+## Histórico das Aulas
+
+O histórico cronológico foi movido para [docs/README.md](docs/README.md).
