@@ -3,20 +3,13 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"github.com/BryanIP/runner/apps/assinatura-cli/cmd"
 )
 
-const version = "v0.0.1"
-
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Uso: assinatura <comando>")
-		return
-	}
-
-	switch os.Args[1] {
-	case "version":
-		fmt.Println("assinatura version", version)
-	default:
-		fmt.Println("Comando desconhecido:", os.Args[1])
+	if err := cmd.Execute(); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
 	}
 }

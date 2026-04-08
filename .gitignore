@@ -34,3 +34,15 @@ replay_pid*
 
 # Binários
 bin/
+
+# Build local dos CLIs (Go)
+apps/assinatura-cli/assinatura
+apps/assinatura-cli/assinatura.exe
+apps/simulador-cli/simulador
+apps/simulador-cli/simulador.exe
+
+# Saída local de builds/releases (estrutura-alvo)
+dist/
+
+# Estado local de runtime (estrutura-alvo)
+.hubsaude/
