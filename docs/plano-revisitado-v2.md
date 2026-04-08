@@ -33,12 +33,12 @@
 **para que** o desenvolvimento possa progredir de forma organizada e incremental.
 
 **Critérios de aceitação:**
-- [ ] Projeto Go inicializado com `go mod init github.com/kyriosdata/assinatura`
-- [ ] Instalar ferramenta para cli em Go `go install github.com/spf13/cobra-cli@latest`
+- [x] Projeto Go inicializado com `go mod init github.com/kyriosdata/assinatura`
+- [x] Instalar ferramenta para cli em Go `go install github.com/spf13/cobra-cli@latest`
 - Prompt: acrescente ao projeto que usa o Cobra a opção version, desta forma, quando for executado, deve exibir a versão corrente da aplicação.
-- [ ] Estrutura de pacotes definida e documentada
-- [ ] Aplicação compila e executa nas três plataformas (Windows, Linux, macOS)
-- [ ] Comando `assinatura version` exibe a versão atual do CLI
+- [x] Estrutura de pacotes definida e documentada
+- [x] Aplicação compila e executa nas três plataformas (Windows, Linux, macOS)
+- [x] Comando `assinatura version` exibe a versão atual do CLI
 
 ### US-05.1 — Pipeline CI/CD multiplataforma
 
@@ -47,10 +47,10 @@
 **para que** binários atualizados estejam sempre disponíveis após cada mudança.
 
 **Critérios de aceitação:**
-- [ ] GitHub Actions configurado com workflow de build
-- [ ] Cross-compilation para `windows/amd64`, `linux/amd64` e `darwin/amd64`
-- [ ] Build executado a cada push na branch principal
-- [ ] Artefatos de build disponíveis como artifacts do workflow
+- [x] GitHub Actions configurado com workflow de build
+- [x] Cross-compilation para `windows/amd64`, `linux/amd64` e `darwin/amd64`
+- [x] Build executado a cada push na branch principal
+- [x] Artefatos de build disponíveis como artifacts do workflow
 
 ### US-05.2 — Publicação de releases com versionamento semântico
 

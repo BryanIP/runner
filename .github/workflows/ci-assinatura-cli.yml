@@ -1,0 +1,52 @@
+name: ci-assinatura-cli
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        goos: [windows, linux, darwin]
+
+    defaults:
+      run:
+        working-directory: apps/assinatura-cli
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Run tests
+        run: go test ./...
+
+      - name: Build binary
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: amd64
+        run: |
+          mkdir -p ../../dist/ci
+          ext=""
+          if [ "$GOOS" = "windows" ]; then
+            ext=".exe"
+          fi
+          go build -o ../../dist/ci/assinatura-${GOOS}-amd64${ext} ./cmd/assinatura
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: assinatura-${{ matrix.goos }}-amd64
+          path: dist/ci/assinatura-${{ matrix.goos }}-amd64*
+          if-no-files-found: error
