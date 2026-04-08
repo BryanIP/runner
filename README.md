@@ -20,8 +20,8 @@ O objetivo do Runner é simplificar a execução e o gerenciamento de aplicaçõ
 
 - [apps/assinatura-cli](apps/assinatura-cli): código-fonte do CLI de assinatura em Go.
 - [docs](docs): requisitos, design, planejamento e documentação de apoio.
-- [assets](assets): artefatos de apoio para desenvolvimento local.
-- [certs](certs): certificados usados em testes locais.
+- [scripts/build](scripts/build): scripts de build local (Bash e PowerShell).
+- [dist](dist): saída local de build/release e conteúdo legado de apoio em [dist/legacy](dist/legacy).
 
 ## Estado do Projeto
 
