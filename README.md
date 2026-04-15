@@ -28,6 +28,12 @@ O objetivo do Runner é simplificar a execução e o gerenciamento de aplicaçõ
 - O projeto está em evolução incremental por sprints, seguindo o plano revisado.
 - A base inicial do CLI já existe e será expandida para cobrir todos os contêineres definidos no design.
 
+## Releases Automáticos
+
+- O workflow de release publica os binários quando uma tag SemVer do tipo `vX.Y.Z` é enviada ao GitHub.
+- O arquivo de workflow está em [.github/workflows/release.yml](.github/workflows/release.yml).
+- Para testar manualmente no GitHub, use `workflow_dispatch` no workflow de release e informe uma versão como `v0.1.0`, ou crie uma tag `v0.1.0` e faça push dessa tag para o repositório.
+
 ## Como Contribuir
 
 1. Leia os requisitos em [docs/especificacao.md](docs/especificacao.md).
