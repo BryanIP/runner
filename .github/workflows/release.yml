@@ -33,7 +33,7 @@ jobs:
       - name: Build release binaries
         env:
           VERSION: ${{ env.RELEASE_VERSION }}
-        run: ./scripts/build/build-all.sh
+        run: bash ./scripts/build/build-all.sh
 
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
