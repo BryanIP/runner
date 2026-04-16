@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 env:
   RELEASE_VERSION: ${{ github.event_name == 'workflow_dispatch' && inputs.version || github.ref_name }}
@@ -34,6 +35,27 @@ jobs:
         env:
           VERSION: ${{ env.RELEASE_VERSION }}
         run: bash ./scripts/build/build-all.sh
+
+      - name: Generate SHA256 checksums
+        run: |
+          cd dist/bin
+          sha256sum assinatura-* > checksums-sha256.txt
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign artifacts with Cosign (keyless)
+        env:
+          COSIGN_YES: "true"
+        run: |
+          for file in dist/bin/assinatura-*; do
+            if [ -f "$file" ] && [[ "$file" != *.sig ]] && [[ "$file" != *.pem ]]; then
+              cosign sign-blob \
+                --output-signature "${file}.sig" \
+                --output-certificate "${file}.pem" \
+                "$file"
+            fi
+          done
 
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
@@ -57,5 +79,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_VERSION }}
+          target_commitish: ${{ github.sha }}
           files: dist/bin/*
           generate_release_notes: true
