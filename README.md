@@ -33,6 +33,22 @@ O objetivo do Runner é simplificar a execução e o gerenciamento de aplicaçõ
 - O workflow de release publica os binários quando uma tag SemVer do tipo `vX.Y.Z` é enviada ao GitHub.
 - O arquivo de workflow está em [.github/workflows/release.yml](.github/workflows/release.yml).
 - Para testar manualmente no GitHub, use `workflow_dispatch` no workflow de release e informe uma versão como `v0.1.0`, ou crie uma tag `v0.1.0` e faça push dessa tag para o repositório.
+- Cada release também publica:
+	- `checksums-sha256.txt`
+	- `<artefato>.sig`
+	- `<artefato>.pem`
+
+### Verificação de Integridade e Assinatura
+
+Exemplo de verificação local para um artefato baixado:
+
+```bash
+sha256sum -c checksums-sha256.txt --ignore-missing
+cosign verify-blob \
+	--certificate assinatura-v0.1.0-linux-amd64.pem \
+	--signature assinatura-v0.1.0-linux-amd64.sig \
+	assinatura-v0.1.0-linux-amd64
+```
 
 ## Como Contribuir
 

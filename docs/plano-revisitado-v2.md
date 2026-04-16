@@ -59,10 +59,10 @@
 **para que** eu possa utilizar o sistema sem necessidade de compilação, com versionamento claro.
 
 **Critérios de aceitação:**
-- [ ] Tags de versão seguem SemVer (ex.: `v0.1.0`)
-- [ ] Workflow de release gera binários nomeados por plataforma
-- [ ] Binários publicados automaticamente no GitHub Releases ao criar tag
-- [ ] Nome dos artefatos segue convenção: `assinatura-<versão>-<os>-<arch>`
+- [x] Tags de versão seguem SemVer (ex.: `v0.1.0`)
+- [x] Workflow de release gera binários nomeados por plataforma
+- [x] Binários publicados automaticamente no GitHub Releases ao criar tag
+- [x] Nome dos artefatos segue convenção: `assinatura-<versão>-<os>-<arch>`
 
 ### US-05.3 — Checksums SHA256 e assinatura de artefatos com Cosign
 
@@ -71,11 +71,11 @@
 **para que** eu possa verificar a integridade e autenticidade dos artefatos baixados.
 
 **Critérios de aceitação:**
-- [ ] Cada release inclui arquivo de checksums SHA256 para todos os binários
-- [ ] Artefatos assinados com Cosign (identidade OIDC + transparency log)
-- [ ] Cada artefato acompanhado de `.sig` e `.pem` conforme especificação
-- [ ] Processo de assinatura automatizado no pipeline CI/CD
-- [ ] Documentação de como verificar artefatos com `cosign verify-blob`
+- [x] Cada release inclui arquivo de checksums SHA256 para todos os binários
+- [x] Artefatos assinados com Cosign (identidade OIDC + transparency log)
+- [x] Cada artefato acompanhado de `.sig` e `.pem` conforme especificação
+- [x] Processo de assinatura automatizado no pipeline CI/CD
+- [x] Documentação de como verificar artefatos com `cosign verify-blob`
 
 ---
 
