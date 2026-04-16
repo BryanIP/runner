@@ -71,11 +71,11 @@
 **para que** eu possa verificar a integridade e autenticidade dos artefatos baixados.
 
 **Critérios de aceitação:**
-- [ ] Cada release inclui arquivo de checksums SHA256 para todos os binários
-- [ ] Artefatos assinados com Cosign (identidade OIDC + transparency log)
-- [ ] Cada artefato acompanhado de `.sig` e `.pem` conforme especificação
-- [ ] Processo de assinatura automatizado no pipeline CI/CD
-- [ ] Documentação de como verificar artefatos com `cosign verify-blob`
+- [x] Cada release inclui arquivo de checksums SHA256 para todos os binários
+- [x] Artefatos assinados com Cosign (identidade OIDC + transparency log)
+- [x] Cada artefato acompanhado de `.sig` e `.pem` conforme especificação
+- [x] Processo de assinatura automatizado no pipeline CI/CD
+- [x] Documentação de como verificar artefatos com `cosign verify-blob`
 
 ---
 
